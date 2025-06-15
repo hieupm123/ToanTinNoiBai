@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Giáo Dục Toán – Tin Nội Bài</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5f7f9b5a26.js" crossorigin="anonymous"></script>
+    <style>
+        /* --- General Styles --- */
+        /* Thêm đoạn này vào trong thẻ <style> của bạn */
+        .course-register-cta {
+            text-align: center;
+            padding: 25px 30px 10px 30px; /* Tăng khoảng cách với nội dung bên trên */
+            border-top: 1px solid #f0f0f0; /* Thêm đường kẻ mờ ngăn cách */
+            margin-top: 15px;
+        }
+        :root {
+            --primary-color: #0056b3; /* Blue for trust and education */
+            --secondary-color: #007bff;
+            --accent-color: #ffc107; /* Yellow for attention */
+            --dark-text: #333;
+            --light-text: #f8f9fa;
+            --background-light: #f4f7fc;
+            --border-color: #dee2e6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-text);
+            line-height: 1.7;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+        
+        section:nth-of-type(odd) {
+            background-color: var(--background-light);
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--accent-color);
+            color: var(--dark-text);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+        }
+
+        .btn:hover {
+            background-color: #e0a800;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.5);
+        }
+        
+        .btn-primary {
+             background-color: var(--secondary-color);
+             color: white;
+             box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: -15px;
+            margin-bottom: 50px;
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.8)), url('https://source.unsplash.com/1600x900/?education,technology') no-repeat center center/cover;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 20px auto 40px;
+            font-weight: 400;
+        }
+        
+        .hero .highlight {
+            background: var(--accent-color);
+            color: var(--dark-text);
+            padding: 5px 15px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+        
+        /* --- Mission Section --- */
+        .mission {
+            text-align: center;
+        }
+
+        .commitments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .commitment-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            text-align: center;
+        }
+
+        .commitment-card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .commitment-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+        
+        /* --- Courses Section --- */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+        .course-category {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .course-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        .course-header {
+            padding: 30px;
+            color: white;
+            text-align: center;
+        }
+        .toan-header { background-color: #28a745; }
+        .tin-header { background-color: #17a2b8; }
+        .ai-header { background-color: #6f42c1; }
+
+        .course-header i { font-size: 3.5rem; margin-bottom: 15px; }
+        .course-header h3 { color: white; margin: 0; font-size: 1.8rem;}
+
+        .course-body {
+            padding: 30px;
+        }
+        .course-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+        .course-item:last-child {
+            border-bottom: none;
+        }
+        .course-item h4 {
+            margin: 0 0 5px 0;
+            color: var(--dark-text);
+        }
+        .course-price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        /* --- Promotions Section --- */
+        .promotions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .promo-card {
+            background: #fff;
+            padding: 40px 30px;
+            border: 2px dashed var(--secondary-color);
+            border-radius: 10px;
+        }
+        .promo-card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        .promo-card h3 {
+            font-size: 1.5rem;
+        }
+
+        /* --- Founder Section --- */
+        .founder-layout {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .founder-img {
+            flex-shrink: 0;
+        }
+        .founder-img img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid var(--background-light);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .founder-info h3 { text-align: left; }
+        .founder-info .slogan { font-style: italic; color: #555; font-size: 1.2rem; margin-bottom: 20px; }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+        }
+        .achievements-list li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .achievements-list i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--secondary-color);
+        }
+        
+        /* --- CTA Section --- */
+        #register {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        #register h2, #register h3 {
+            color: white;
+        }
+        #register .section-subtitle {
+            color: var(--light-text);
+        }
+        #register .btn {
+            margin-top: 20px;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background: var(--dark-text);
+            color: var(--light-text);
+            padding: 50px 0;
+            text-align: center;
+        }
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        footer h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        footer p {
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        .footer-slogan {
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        .footer-contact a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .founder-layout {
+                flex-direction: column;
+                text-align: center;
+            }
+            .founder-info h3 { text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            h2 { font-size: 2rem; }
+            section { padding: 60px 0; }
+            .navbar { flex-direction: column; }
+            .nav-links { margin-top: 15px; }
+            .nav-links li { margin: 0 10px; }
+
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+
+            .founder-img img { width: 200px; height: 200px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ======== HEADER ======== -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">Toán – Tin Nội Bài</a>
+            <ul class="nav-links">
+                <li><a href="#courses">Khóa Học</a></li>
+                <li><a href="#founder">Người Sáng Lập</a></li>
+                <li><a href="#mission">Sứ Mệnh</a></li>
+                <li><a href="#register" class="btn-primary" style="padding: 8px 20px;">Đăng Ký</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- ======== HERO SECTION ======== -->
+        <section class="hero" id="home">
+            <div class="container">
+                <p style="font-size: 2.3rem; font-weight: bold;">HỆ THỐNG GIÁO DỤC TOÁN - TIN NỘI BÀI</p>
+                <h1>TƯNG BỪNG KHAI GIẢNG NĂM HỌC MỚI</h1>
+                <p>Mở đường chinh phục tri thức và tương lai công nghệ cho học sinh từ cơ bản đến chuyên sâu, ôn thi hiệu quả, bứt phá trong các kỳ thi lớn.</p>
+                <p>🔥 <span class="highlight">Giảm ngay 50% học phí</span> cho mọi lớp học khi đăng ký trước 15/07/2025! 🔥</p>
+                <a href="#register" class="btn">Đăng Ký Tư Vấn Ngay!</a>
+            </div>
+        </section>
+
+        <!-- ======== MISSION SECTION ======== -->
+        <section id="mission">
+            <div class="container">
+                <h2>SỨ MỆNH CỦA CHÚNG TÔI</h2>
+                <p class="section-subtitle">"Dạy để đỗ – Rèn để giỏi – Dẫn lối đường xa"</p>
+                <div class="commitments-grid">
+                    <div class="commitment-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Kết Quả Thực Tế</h3>
+                        <p>Học để đạt kết quả thực tế: điểm cao, giải thưởng, đỗ chuyên, đỗ đại học, và tiến xa trong khoa học công nghệ.</p>
+                    </div>
+                    <div class="commitment-card">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Nền Tảng Vững Chắc</h3>
+                        <p>Cam kết học chắc nền tảng, không để lại lỗ hổng kiến thức, tạo điều kiện tiên quyết cho sự phát triển lâu dài.</p>
+                    </div>
+                    <div class="commitment-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Định Hướng Tương Lai</h3>
+                        <p>Rèn luyện tư duy lập trình và định hướng sớm cho học sinh yêu công nghệ: AI, Thị giác máy tính, NLP từ bậc phổ thông.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== COURSES SECTION (ĐÃ CẬP NHẬT) ======== -->
+        <section id="courses">
+            <div class="container">
+                <h2>CÁC KHÓA HỌC TẠI TOÁN - TIN NỘI BÀI</h2>
+                <p class="section-subtitle">Đa dạng lựa chọn từ cơ bản đến chuyên sâu, phù hợp với mọi mục tiêu và năng lực.</p>
+                <div class="courses-grid">
+                    <!-- TOÁN -->
+                    <article class="course-category">
+                        <div class="course-header toan-header">
+                            <i class="fas fa-calculator"></i>
+                            <h3>TOÁN HỌC</h3>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-item">
+                                <h4>Lớp 6–12: Cơ bản, nâng cao, ôn HSG</h4>
+                                <p>Từ cơ bản đến chuyên sâu – phù hợp từng khối lớp</p>
+                                <div class="course-price">Học phí: 40k → 100k / buổi</div>
+                            </div>
+                            <div class="course-item">
+                                <h4>Lớp 10–12: Ôn thi THPT QG</h4>
+                                <p>Luyện đề chuẩn cấu trúc, bám sát mục tiêu điểm số.</p>
+                                <div class="course-price">Học phí: 60k / buổi</div>
+                            </div>
+                            <div class="course-item">
+                                <h4>Chuyên sâu Olympic / Chuyên</h4>
+                                <p>Dành cho học sinh mục tiêu cao, chinh phục các kỳ thi lớn.</p>
+                                <div class="course-price">Học phí: 120k / buổi</div>
+                            </div>
+                            <!-- ====== NÚT ĐĂNG KÝ MỚI THÊM ====== -->
+                            <div class="course-register-cta">
+                                <a href="https://www.facebook.com/ToanTinNoiBai" target="_blank" class="btn btn-primary">
+                                    <i class="fab fa-facebook-messenger"></i> Tư Vấn Môn Toán
+                                </a>
+                            </div>
+                            <!-- ====== HẾT PHẦN MỚI THÊM ====== -->
+                        </div>
+                    </article>
+
+                    <!-- TIN HỌC -->
+                    <article class="course-category">
+                        <div class="course-header tin-header">
+                            <i class="fas fa-code"></i>
+                            <h3>TIN HỌC & LẬP TRÌNH</h3>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-item">
+                                <h4>C/C++/Python cơ bản (Lớp 6–12)</h4>
+                                <p>Xây dựng nền tảng lập trình vững chắc từ sớm.</p>
+                                <div class="course-price">Học phí: 40k / buổi</div>
+                            </div>
+                            <div class="course-item">
+                                <h4>C/C++ luyện thuật toán, chuyên Tin</h4>
+                                <p>Bồi dưỡng tư duy thuật toán, ôn thi THPT chuyên.</p>
+                                <div class="course-price">Học phí: 120k / buổi</div>
+                            </div>
+                            <div class="course-item">
+                                <h4>Lập trình thi đấu, HSG, Olympic Tin</h4>
+                                <p>Từ nhập môn đến chinh phục các đấu trường đỉnh cao.</p>
+                                <div class="course-price">Học phí: 80k / buổi</div>
+                            </div>
+                            <!-- ====== NÚT ĐĂNG KÝ MỚI THÊM ====== -->
+                            <div class="course-register-cta">
+                                <a href="https://www.facebook.com/ToanTinNoiBai" target="_blank" class="btn btn-primary">
+                                    <i class="fab fa-facebook-messenger"></i> Tư Vấn Môn Tin
+                                </a>
+                            </div>
+                            <!-- ====== HẾT PHẦN MỚI THÊM ====== -->
+                        </div>
+                    </article>
+
+                    <!-- AI -->
+                    <article class="course-category">
+                        <div class="course-header ai-header">
+                            <i class="fas fa-robot"></i>
+                            <h3>CÔNG NGHỆ AI</h3>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-item">
+                                <h4>Nhập môn AI, học máy cấp phổ thông</h4>
+                                <p>Dành cho bất kỳ ai yêu công nghệ và khoa học dữ liệu.</p>
+                                <div class="course-price">Học phí: 40k / buổi</div>
+                            </div>
+                            <div class="course-item">
+                                <h4>Computer Vision, NLP - Chatbot</h4>
+                                <p>Làm quen với Thị giác máy tính, LLMs, Prompting cơ bản.</p>
+                                <div class="course-price">Học phí: 70k / buổi</div>
+                            </div>
+                            <div class="course-item">
+                                <h4>Hình thức học tập linh hoạt</h4>
+                                <p>📍 Học online toàn quốc hoặc trực tiếp tại Nội Bài.</p>
+                                <div class="course-price">Chủ động lựa chọn</div>
+                            </div>
+                            <!-- ====== NÚT ĐĂNG KÝ MỚI THÊM ====== -->
+                            <div class="course-register-cta">
+                                <a href="https://www.facebook.com/ToanTinNoiBai" target="_blank" class="btn btn-primary">
+                                    <i class="fab fa-facebook-messenger"></i> Tư Vấn Môn AI
+                                </a>
+                            </div>
+                            <!-- ====== HẾT PHẦN MỚI THÊM ====== -->
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== PROMOTIONS SECTION ======== -->
+        <section id="promotions">
+            <div class="container">
+                <h2>ƯU ĐÃI KHAI GIẢNG ĐẶC BIỆT</h2>
+                <p class="section-subtitle">Đừng bỏ lỡ cơ hội nhận những ưu đãi hấp dẫn nhất năm!</p>
+                <div class="promotions-grid">
+                    <div class="promo-card">
+                        <i class="fas fa-percent"></i>
+                        <h3>Giảm 50% Học Phí</h3>
+                        <p>Giảm ngay 50% cho TẤT CẢ học viên đăng ký các lớp khai giảng trước ngày 15/07/2025.</p>
+                    </div>
+                     <div class="promo-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Ưu đãi Học Nhóm</h3>
+                        <p>Giảm thêm 15% học phí khi đăng ký theo nhóm từ 10 học sinh trở lên.</p>
+                    </div>
+                     <div class="promo-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Học Thử Miễn Phí</h3>
+                        <p>Trải nghiệm chất lượng giảng dạy với buổi học đầu tiên hoàn toàn miễn phí.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== FOUNDER SECTION ======== -->
+        <section id="founder">
+            <div class="container">
+                <h2>NGƯỜI SÁNG LẬP & TRỰC TIẾP GIẢNG DẠY</h2>
+                <div class="founder-layout">
+                    <div class="founder-img">
+                        <!-- Đặt ảnh của bạn Vũ Minh Hiếu tên là founder.jpg vào cùng thư mục -->
+                        <img src="founder.jpg" alt="Vũ Minh Hiếu - Người sáng lập">
+                    </div>
+                    <div class="founder-info">
+                        <h3>Vũ Minh Hiếu</h3>
+                        <p class="slogan">“Người buôn tri thức – Đồng hành tương lai”</p>
+                        <p>Sinh viên năm cuối ngành Khoa học Máy tính, trường ĐH Khoa học Tự nhiên - ĐHQG Hà Nội. Với niềm đam mê giáo dục và kinh nghiệm thi đấu đỉnh cao, Hiếu không chỉ là người thầy mà còn là người đồng hành truyền cảm hứng.</p>
+                        <h4>Thành tích tiêu biểu:</h4>
+                        <ul class="achievements-list">
+                            <li><i class="fas fa-trophy"></i> Hạng 2 Grand Contest 2025 CHALLENGE ON CITYSCAPE AERIAL IMAGE DATASET FOR OBJECT DETECTION IEEE ICIP 2025 – Trình bày nghiên cứu tại hội nghị khoa học quốc tế ICIP (Q1 – Alaska, Hoa Kỳ).</li>
+                            <li><i class="fas fa-microchip"></i> Thực tập & nghiên cứu tại Trung tâm Samsung R&D Việt Nam.</li>
+                            <li><i class="fas fa-medal"></i> Giải Nhì & Ba Olympic Tin học Sinh viên Quốc gia (2022, 2023).</li>
+                            <li><i class="fas fa-award"></i> Giải Nhì ICPC Quốc gia 2022 & Giải Ba ICPC Bắc 2024.</li>
+                            <li><i class="fas fa-book-reader"></i> Nhiều học kỳ nhận học bổng, cùng thành tích học sinh giỏi các cấp.</li>
+                            <li><i class="fas fa-book-reader"></i> Tham gia thực tập tại Viện Nghiên cứu cao cấp về toán, Trường hè Toán học Quy Nhơn 2024, Chương trình Học máy – Thống kê Toán tại Viện Nghiên cứu Cao cấp về Toán (Viasm).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== CTA Section ======== -->
+        <section id="register">
+            <div class="container">
+                <h2>Đăng Ký Tư Vấn & Nhận Ưu Đãi Ngay!</h2>
+                <p class="section-subtitle">Chỉ một bước để mở ra con đường học tập hiệu quả và chinh phục tương lai.</p>
+                <h3>Kết nối với chúng tôi qua Facebook để được tư vấn nhanh nhất!</h3>
+                <a href="https://www.facebook.com/ToanTinNoiBai" target="_blank" class="btn">
+                    <i class="fab fa-facebook-messenger"></i> Gửi Tin Nhắn Ngay
+                </a>
+                <p style="margin-top: 20px; color: #eee;">Hoặc gọi trực tiếp: <strong>082 880 6563</strong></p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======== FOOTER ======== -->
+    <footer>
+        <div class="container">
+            <h3>Hệ Thống Giáo Dục Toán – Tin Nội Bài</h3>
+            <p class="footer-slogan">“Buôn tri thức – Đồng hành tương lai”</p>
+            <div class="footer-contact">
+                <p><i class="fas fa-map-marker-alt"></i> Học Online Toàn Quốc | Trực tiếp tại Nội Bài – Sóc Sơn – Hà Nội</p>
+                <p>
+                    <i class="fas fa-phone-alt"></i> 082 880 6563 | 
+                    <a href="https://www.facebook.com/ToanTinNoiBai" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                </p>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.9rem; color: #aaa;">© 2025 Hệ Thống Giáo Dục Toán - Tin Nội Bài. All rights reserved.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
